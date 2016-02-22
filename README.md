@@ -1,2 +1,2 @@
 # Fieldbook-SwiftSDK
-A Swift SDK for the Fieldbook API
+A Swift SDK for the Fieldbook API. Coming soon!
