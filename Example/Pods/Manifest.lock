@@ -1,0 +1,14 @@
+PODS:
+  - Fieldbook-SwiftSDK (0.1.0)
+
+DEPENDENCIES:
+  - Fieldbook-SwiftSDK (from `../`)
+
+EXTERNAL SOURCES:
+  Fieldbook-SwiftSDK:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Fieldbook-SwiftSDK: 8cc79b0e00aeab24eec72ba0d8ad48f023c9838b
+
+COCOAPODS: 0.39.0

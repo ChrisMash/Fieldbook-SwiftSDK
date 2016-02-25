@@ -1,0 +1,6 @@
+framework module Fieldbook_SwiftSDK {
+  umbrella header "Fieldbook-SwiftSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

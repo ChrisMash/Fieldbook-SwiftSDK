@@ -1,0 +1,6 @@
+framework module Pods_Fieldbook_SwiftSDK_Example {
+  umbrella header "Pods-Fieldbook-SwiftSDK_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

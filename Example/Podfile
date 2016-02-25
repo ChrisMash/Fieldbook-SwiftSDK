@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'Fieldbook-SwiftSDK_Example', :exclusive => true do
+  pod 'Fieldbook-SwiftSDK', :path => '../'
+end
+
+target 'Fieldbook-SwiftSDK_Tests', :exclusive => true do
+  pod 'Fieldbook-SwiftSDK', :path => '../'
+
+  
+end
