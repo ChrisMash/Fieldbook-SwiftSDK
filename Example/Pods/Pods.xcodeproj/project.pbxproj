@@ -12,7 +12,6 @@
 		3400402E1E9680A735F79A015C8434E0 /* Pods-Fieldbook-SwiftSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8D52547EA476E33A15A8865897BF1 /* Pods-Fieldbook-SwiftSDK_Example-dummy.m */; };
 		3950750599ABBE8960B54A618BE68D46 /* FieldbookSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493669EAD5B055F188631E41F7CADC9 /* FieldbookSDK.swift */; };
 		59EFC3AD94A285CE5A53D0F267A7AE7D /* Pods-Fieldbook-SwiftSDK_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F3524DE391C020E10D2D78DDF47203A /* Pods-Fieldbook-SwiftSDK_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		778D0A205C863BDA006A6A735DA6629A /* Fieldbook-SwiftSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 745E0442992270297AF513D12E643513 /* Fieldbook-SwiftSDK.bundle */; };
 		9A79A929A0381B89A901EE8DEA86B296 /* Fieldbook-SwiftSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F5F2873450D322C152028C8AD85E6E8 /* Fieldbook-SwiftSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A685B1D47B54A1BC89D3332230386F3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		C07CBCD7B6BD63FA5207557F9CD3DB8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
@@ -35,13 +34,6 @@
 			remoteGlobalIDString = C8281777BB8D950E39E4C375B7382095;
 			remoteInfo = "Fieldbook-SwiftSDK";
 		};
-		DE632076EE1D269C48F3AE4ED6E861A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FD379DEFAD7ADF4CF3FCA1F54FCFA327;
-			remoteInfo = "Fieldbook-SwiftSDK-Fieldbook-SwiftSDK";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +49,6 @@
 		5F62642D6B9BEB53178105B2C80B1C12 /* Pods-Fieldbook-SwiftSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Fieldbook-SwiftSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6577C937FA1CD42B5E8B3FABAB7C4D41 /* Pods-Fieldbook-SwiftSDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Fieldbook-SwiftSDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		65D8D52547EA476E33A15A8865897BF1 /* Pods-Fieldbook-SwiftSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Fieldbook-SwiftSDK_Example-dummy.m"; sourceTree = "<group>"; };
-		745E0442992270297AF513D12E643513 /* Fieldbook-SwiftSDK.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fieldbook-SwiftSDK.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		845EF9D0459CD83C3D82546225923DF1 /* Pods-Fieldbook-SwiftSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Fieldbook-SwiftSDK_Tests.modulemap"; sourceTree = "<group>"; };
 		8F5F2873450D322C152028C8AD85E6E8 /* Fieldbook-SwiftSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Fieldbook-SwiftSDK-umbrella.h"; sourceTree = "<group>"; };
 		9F3524DE391C020E10D2D78DDF47203A /* Pods-Fieldbook-SwiftSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Fieldbook-SwiftSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -94,13 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A685B1D47B54A1BC89D3332230386F3A /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B09986D82C547E7342D7F6C07DEBA5C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +186,6 @@
 		E21E7E5AB0BD29C81347D6306D34C016 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				745E0442992270297AF513D12E643513 /* Fieldbook-SwiftSDK.bundle */,
 				B3EFA7B92E511E11ED9C5EC886CD65F2 /* Fieldbook_SwiftSDK.framework */,
 				BF1A4081D2C6ED74F466B88AEA040471 /* Pods_Fieldbook_SwiftSDK_Example.framework */,
 				BCFC9A8D8F180E330CD7A0F0244A06E2 /* Pods_Fieldbook_SwiftSDK_Tests.framework */,
@@ -306,7 +289,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				0340815889F8297AD89BACB3F89F9C95 /* PBXTargetDependency */,
 			);
 			name = "Fieldbook-SwiftSDK";
 			productName = "Fieldbook-SwiftSDK";
@@ -331,23 +313,6 @@
 			productReference = BCFC9A8D8F180E330CD7A0F0244A06E2 /* Pods_Fieldbook_SwiftSDK_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FD379DEFAD7ADF4CF3FCA1F54FCFA327 /* Fieldbook-SwiftSDK-Fieldbook-SwiftSDK */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2EA045343B4F43DD847AAF92FA75CF72 /* Build configuration list for PBXNativeTarget "Fieldbook-SwiftSDK-Fieldbook-SwiftSDK" */;
-			buildPhases = (
-				0B7669EDCA520C8298689A16206723CA /* Sources */,
-				B09986D82C547E7342D7F6C07DEBA5C2 /* Frameworks */,
-				021BD959F436690B09FFF69210CA7983 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Fieldbook-SwiftSDK-Fieldbook-SwiftSDK";
-			productName = "Fieldbook-SwiftSDK-Fieldbook-SwiftSDK";
-			productReference = 745E0442992270297AF513D12E643513 /* Fieldbook-SwiftSDK.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -370,7 +335,6 @@
 			projectRoot = "";
 			targets = (
 				C8281777BB8D950E39E4C375B7382095 /* Fieldbook-SwiftSDK */,
-				FD379DEFAD7ADF4CF3FCA1F54FCFA327 /* Fieldbook-SwiftSDK-Fieldbook-SwiftSDK */,
 				370A1225AB28C8A71116CBEE25E87EF9 /* Pods-Fieldbook-SwiftSDK_Example */,
 				E0D31B9792357BC33A722ACF3E8C9B7F /* Pods-Fieldbook-SwiftSDK_Tests */,
 			);
@@ -378,31 +342,16 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		021BD959F436690B09FFF69210CA7983 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0B3C0F80534E13D10603157BC91C3E18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				778D0A205C863BDA006A6A735DA6629A /* Fieldbook-SwiftSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0B7669EDCA520C8298689A16206723CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0E6BAC9A24E113EBFB6758712E55FBAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -431,12 +380,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0340815889F8297AD89BACB3F89F9C95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Fieldbook-SwiftSDK-Fieldbook-SwiftSDK";
-			target = FD379DEFAD7ADF4CF3FCA1F54FCFA327 /* Fieldbook-SwiftSDK-Fieldbook-SwiftSDK */;
-			targetProxy = DE632076EE1D269C48F3AE4ED6E861A5 /* PBXContainerItemProxy */;
-		};
 		45D578BBF02F2377B0246275F6CBB6A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Fieldbook-SwiftSDK";
@@ -547,18 +490,6 @@
 			};
 			name = Release;
 		};
-		4EB5D420C53C347F8CD3F8678579DF94 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA19354A45B88AB05E2C1CEF689BE4BE /* Fieldbook-SwiftSDK.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = "Fieldbook-SwiftSDK";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		552D02D5BA751AC2E8790D2811D496CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -656,18 +587,6 @@
 			};
 			name = Release;
 		};
-		A5D575AAE93361D626E79B0360FFB13F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA19354A45B88AB05E2C1CEF689BE4BE /* Fieldbook-SwiftSDK.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = "Fieldbook-SwiftSDK";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		CD4A4DEA3DE17B07AC4521CBB52EAED9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD460DEB0FF745DD55991B36FE373C14 /* Pods-Fieldbook-SwiftSDK_Example.debug.xcconfig */;
@@ -734,15 +653,6 @@
 			buildConfigurations = (
 				552D02D5BA751AC2E8790D2811D496CA /* Debug */,
 				10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2EA045343B4F43DD847AAF92FA75CF72 /* Build configuration list for PBXNativeTarget "Fieldbook-SwiftSDK-Fieldbook-SwiftSDK" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A5D575AAE93361D626E79B0360FFB13F /* Debug */,
-				4EB5D420C53C347F8CD3F8678579DF94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

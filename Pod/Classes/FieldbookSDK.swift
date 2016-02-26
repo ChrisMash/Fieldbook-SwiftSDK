@@ -33,24 +33,40 @@ public class FieldbookSDK : NSObject
     
     /// Set the authentication details (key & secret / username & password)
     /// Necessary if you wish to add/update/delete items or access a private book
+    ///
+    /// - parameters:
+    ///   - key: key / username from API-access on Fieldbook website
+    ///   - secret: secret / password from API-access on Fieldbook website
     public static func setAuthDetails( key: String, secret: String )
     {
         username = key
         password = secret
     }
     
-    /// Get all the items at the specified query (book_id/sheet_name)
-    /// 'more' in the completion block will always be false
-    public static func getItems( query: String, completion: (items: NSArray?, more: Bool, error: NSError?) -> Void )
+    /// Get all the items at the specified path
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<sheet_name>"
+    ///   - completion: block called upon completion of the query, with either an array of items or an error
+    public static func getItems( query: String, completion: (items: NSArray?, error: NSError?) -> Void )
     {
-        getItems( query, limit: 0, offset: 0, filters: nil, include: nil, exclude: nil, completion: completion )
+        getItems( query, limit: 0, offset: 0, filters: nil, include: nil, exclude: nil) {
+            (items, more, error) -> Void in
+            
+            completion( items: items, error: error )
+        }
     }
     
-    /// Get a subset of the items at the specified query (book_id/sheet_name)
-    /// Use 'limit' & 'offset' to get pages of items, with 'more' in the completion block specifying whether
-    /// there is more data available or the final page has been returned
-    /// Use 'filters' to get only those items matching certain key/value pairs
-    /// Use 'include' and 'exclude' to define which columns should be included/excluded from the response (comma delimited)
+    /// Get a subset of the items at the specified path (book_id/sheet_name)
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<sheet_name>"
+    ///   - limit: the max number of items to be returned
+    ///   - offset: the number of items to skip, for paging
+    ///   - filters: key/value pairs to filter the results by, of the form "name=amy". Case-sensitive.
+    ///   - include: comma-separated string of fields that should be included in the returned items. Set to nil to get everything
+    ///   - exclude: comma-separated string of fields that should be excluded in the returned items. Set to nil to get everything
+    ///   - completion: block called upon completion of the query, with either an array of items or an error and a flag specifying whethere there are more items that can be requested
     public static func getItems( query: String, limit: UInt, offset: UInt, filters: NSArray?, include: String?, exclude: String?, completion: (items: NSArray?, more: Bool, error: NSError?) -> Void )
     {
         var parameters = ""
@@ -161,14 +177,25 @@ public class FieldbookSDK : NSObject
         
     }
 
-    /// Get a single item with the specified query (book_id/sheet_name) and id
+    /// Get a single item with the specified path (book_id/sheet_name) and id
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<sheet_name>"
+    ///   - id: the id number of the item to return
+    ///   - completion: block called upon completion of the query, with either the item or an error
     public static func getItem( query: String, id: NSNumber, completion: (item: NSDictionary?, error: NSError?) -> Void )
     {
         getItem( query, id: id, include: nil, exclude: nil, completion: completion )
     }
     
-    /// Get a single item with the specified query (book_id/sheet_name) and id
-    /// Use 'include' and 'exclude' to define which columns should be included/excluded from the response
+    /// Get a single item with the specified path (book_id/sheet_name) and id
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<sheet_name>"
+    ///   - id: the id number of the item to return
+    ///   - include: comma-separated string of fields of the item that should be included. Set to nil to get everything
+    ///   - exclude: comma-separated string of fields of the item that should be excluded. Set to nil to get everything
+    ///   - completion: block called upon completion of the query, with either the item or an error
     public static func getItem( query: String, id: NSNumber, include: NSString?, exclude: NSString?, completion: (item: NSDictionary?, error: NSError?) -> Void )
     {
         var parameters = ""
@@ -239,9 +266,13 @@ public class FieldbookSDK : NSObject
     
     }
     
-    /// Add a single item to the specified query (book_id/sheet_name)
+    /// Add a single item to the specified path (book_id/sheet_name)
     /// Do not include an 'id' field in the item as Fieldbook will generate that itself (your sheet should NOT have an 'id' column as it will cause a clash)
-    /// The resulting 'item' in the completion block will provide you with the newly added item (including its Fieldbook generated id which may be useful for subsequent update/delete calls)
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<sheet_name>"
+    ///   - item: the fields of the item to be added
+    ///   - completion: block called upon completion of the query, with either the newly added item or an error
     public static func addToList( query: String, item: NSDictionary, completion: (item: NSDictionary?, error: NSError?) -> Void )
     {
         // We're going to get a POST request here of the form
@@ -282,9 +313,13 @@ public class FieldbookSDK : NSObject
         })
     }
     
-    /// Update an item at the specified query (book_id/sheet_name)
-    /// 'item' need only contain the changed fields
-    /// The resulting 'item' in the completion block will provide you with the fully updated item fields
+    /// Update an item at the specified path (book_id/sheet_name)
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<sheet_name>"
+    ///   - id: the id number of the item to be updated
+    ///   - item: the fields of the item to be updated (don't need to include fileds that don't need to change)
+    ///   - completion: block called upon completion of the query, with either the newly updated item or an error
     public static func updateItem( query: String, id: NSNumber, item: NSDictionary, completion: (item: NSDictionary?, error: NSError?) -> Void )
     {
         // We're going to get a PATCH request here of the form
@@ -325,7 +360,12 @@ public class FieldbookSDK : NSObject
         })
     }
     
-    /// Delete an item from the specified query (book_id/sheet_name)
+    /// Delete an item from the specified path (book_id/sheet_name)
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<sheet_name>"
+    ///   - id: the id number of the item to be deleted
+    ///   - completion: block called upon completion of the query, with either nil or an error
     public static func deleteItem( query: String, id: NSNumber, completion: (error: NSError?) -> Void )
     {
         // We're going to get a DELETE request here of the form
