@@ -21,11 +21,10 @@ A Swift SDK for the Fieldbook API so you can write iOS/OSX apps to access your s
 DESC
 
   s.homepage         = "https://github.com/ChrisMash/Fieldbook-SwiftSDK"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Chris Mash" => "chris.mash@gmx.com" }
   s.source           = { :git => "https://github.com/ChrisMash/Fieldbook-SwiftSDK.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/cjmash'
+  s.social_media_url = 'https://twitter.com/cjmash'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -34,7 +33,4 @@ DESC
   s.resource_bundles = {
     'Fieldbook-SwiftSDK' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit'
 end
