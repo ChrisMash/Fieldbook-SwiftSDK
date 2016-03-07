@@ -187,6 +187,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // Fieldbook has more data and this is the cell for the last item in the list
             // A special cell with a spinner to show we're loading more in!
             let cell = tableView.dequeueReusableCellWithIdentifier( "loadMoreCell" )
+            if let indicator = cell?.viewWithTag( 99 ) as? UIActivityIndicatorView
+            {
+                indicator.startAnimating()
+            }
             return cell!
         }
         else

@@ -406,7 +406,7 @@ public class FieldbookSDK : NSObject
                 request.HTTPMethod = "PATCH"
             }
             
-            // If there's some data past in convert it from json to NSData
+            // If there's some data passed in convert it from json to NSData
             if let unwrappedData = data
             {
                 request.setValue( "application/json", forHTTPHeaderField: "Content-Type" )
