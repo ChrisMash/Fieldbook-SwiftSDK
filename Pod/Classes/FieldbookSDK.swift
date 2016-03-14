@@ -11,7 +11,8 @@ import UIKit
 public class FieldbookSDK : NSObject
 {
     private static let SDK_ERROR_DOMAIN = "FieldbookSDK"
-    private static let BASE_URL = "https://api.fieldbook.com/v1/"
+    private static let API_BASE_URL = "https://api.fieldbook.com/v1/"
+    private static let CODELET_BASE_URL = "https://fieldbookcode.com/"
     private static var username : String?
     private static var password : String?
     
@@ -126,7 +127,7 @@ public class FieldbookSDK : NSObject
         
         // We're going to get a GET request here of the form
         // https://api.fieldbook.com/v1/56cb45f67753cf030003e42b/sheet_1/?limit=5&offset=0
-        let request = requestFor( query + parameters, type: .Get, data: nil )
+        let request = requestFor( API_BASE_URL, additionalPath: query + parameters, type: .Get, data: nil )
         
         makeRequest( request, completion: {
             (json: AnyObject?, error: NSError?) -> Void in
@@ -229,7 +230,7 @@ public class FieldbookSDK : NSObject
         
         // We're going to get a GET request here of the form
         // https://api.fieldbook.com/v1/56cb45f67753cf030003e42b/sheet_1/1
-        let request = requestFor( query + "/\(id)" + parameters, type: .Get, data: nil )
+        let request = requestFor( API_BASE_URL, additionalPath: query + "/\(id)" + parameters, type: .Get, data: nil )
         
         makeRequest( request, completion: {
             (json: AnyObject?, error: NSError?) -> Void in
@@ -277,7 +278,7 @@ public class FieldbookSDK : NSObject
     {
         // We're going to get a POST request here of the form
         // https://api.fieldbook.com/v1/56cb45f67753cf030003e42b/sheet_1/
-        let request = requestFor( query, type: .Post, data: item )
+        let request = requestFor( API_BASE_URL, additionalPath: query, type: .Post, data: item )
         
         makeRequest( request, completion: {
             (json: AnyObject?, error: NSError?) -> Void in
@@ -324,7 +325,7 @@ public class FieldbookSDK : NSObject
     {
         // We're going to get a PATCH request here of the form
         // https://api.fieldbook.com/v1/56cb45f67753cf030003e42b/sheet_1/1
-        let request = requestFor( query + "/\(id)", type: .Patch, data: item )
+        let request = requestFor( API_BASE_URL, additionalPath: query + "/\(id)", type: .Patch, data: item )
         
         makeRequest( request, completion: {
             (json: AnyObject?, error: NSError?) -> Void in
@@ -370,7 +371,7 @@ public class FieldbookSDK : NSObject
     {
         // We're going to get a DELETE request here of the form
         // https://api.fieldbook.com/v1/56cb45f67753cf030003e42b/sheet_1/1
-        let request = requestFor( query + "/\(id)", type: .Delete, data: nil )
+        let request = requestFor( API_BASE_URL, additionalPath: query + "/\(id)", type: .Delete, data: nil )
         
         makeRequest( request, completion: {
             (json: AnyObject?, error: NSError?) -> Void in
@@ -385,11 +386,34 @@ public class FieldbookSDK : NSObject
         })
     }
     
+    /// Send a query to a Fieldbook Codelet (book_id/codelet_name)
+    ///
+    /// - parameters:
+    ///   - query: query path of the form "<book_id>/<codelet_name>"
+    ///   - completion: block called upon completion of the query, with either the response or an error
+    public static func queryCodelet( query: String, completion: (response: AnyObject?, error: NSError?) -> Void )
+    {
+        // We're going to get a GET request here of the form
+        // https://fieldbookcode.com//56cb45f67753cf030003e42b/xyz
+        let request = requestFor( CODELET_BASE_URL, additionalPath: query, type: .Get, data: nil )
+        
+        makeRequest( request ) {
+            (json : AnyObject?, error: NSError?) -> Void in
+            
+            // Need to make sure we call the completion method on the main thread
+            dispatch_async(dispatch_get_main_queue(),{
+                
+                completion( response: json, error: error )
+                
+            })
+        }
+    }
+    
     // MARK: - Private methods
-    private static func requestFor( additionalPath: String, type: RequestType, data: NSDictionary? ) -> NSMutableURLRequest?
+    private static func requestFor( base: String, additionalPath: String, type: RequestType, data: NSDictionary? ) -> NSMutableURLRequest?
     {
         // Create a request with the specified path applied to the base URL
-        let url = NSURL( string: BASE_URL + additionalPath )
+        let url = NSURL( string: base + additionalPath )
         if let unwrappedURL = url
         {
             let request = NSMutableURLRequest( URL: unwrappedURL )

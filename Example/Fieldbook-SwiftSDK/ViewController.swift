@@ -33,6 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // Authentication details to allow adding/updating/deleting from the public, read-only, shet
         FieldbookSDK.setAuthDetails( "key-3", secret: "ni2YUysqcSBhVQqhvH1r" )
+        
     }
     
     override func viewDidAppear(animated: Bool)
@@ -82,13 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func refreshListData()
-    {
-        FieldbookSDK.getItems( Constants.fieldbookPath(), limit: LIST_PAGE_SIZE, offset: 0, filters: [ "col_1=2 1", "col_2=22" ], include: nil, exclude: nil, completion: { (items, more, error) -> Void in
-            
-            NSLog( "Filtered items: %@", items! )
-            
-            })
-            
+    {    
         loading = true
         
         // Chuck away all the previously loaded data, we're starting again!

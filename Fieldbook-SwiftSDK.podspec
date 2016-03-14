@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Fieldbook-SwiftSDK"
-  s.version          = "1.0"
+  s.version          = "1.1"
   s.summary          = "A Swift SDK for the Fieldbook API."
 
 # This description is used to generate tags and improve search results.
