@@ -89,6 +89,13 @@ public static func updateItem( query: String, id: NSNumber, item: NSDictionary, 
 ///   - id: the id number of the item to be deleted
 ///   - completion: block called upon completion of the query, with either nil or an error
 public static func deleteItem( query: String, id: NSNumber, completion: (error: NSError?) -> Void )
+
+/// Send a query to a Fieldbook Codelet (book_id/codelet_name)
+///
+/// - parameters:
+///   - query: query path of the form "<book_id>/<codelet_name>"
+///   - completion: block called upon completion of the query, with either the response or an error
+public static func queryCodelet( query: String, completion: (response: AnyObject?, error: NSError?) -> Void )
 ```
 
 For more details on the API you can find some docs on [GitHub](https://github.com/fieldbook/api-docs).
