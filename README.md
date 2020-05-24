@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/cocoapods/l/Fieldbook-SwiftSDK.svg?style=flat)](http://cocoapods.org/pods/Fieldbook-SwiftSDK)
 [![Platform](https://img.shields.io/cocoapods/p/Fieldbook-SwiftSDK.svg?style=flat)](http://cocoapods.org/pods/Fieldbook-SwiftSDK)
 
+**NOTE: As of 25th June 2018 Fieldbook is no longer running**
+
 ## Intro
 
 [Fieldbook](http://fieldbook.com); create a database as easily as a spreadsheet.
